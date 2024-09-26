@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validación de formulario</title>
+    <style>
+        /* Estilo para el mensaje de error */
+        #noname {
+            color: pink;
+            font-size: 14px;
+            display: none; /* Ocultamos inicialmente */
+        }
+    </style>
+</head>
+<body>
+    <h2>Formulario de Registro</h2>
+    <form id="registroForm" onsubmit="return validarFormulario()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <br><br>
+        <span id="noname">Por favor, introduce tu nombre.</span>
+        <br><br>
+        <button type="submit">Enviar</button>
+    </form>
+
+    <script>
+        // Función de validación del formulario
+        function validarFormulario() {
+            // Obtenemos el valor del input de nombre
+            var nombre = document.getElementById("nombre").value;
+
+            // Verificamos si el campo está vacío
+            if (nombre === "") {
+                // Mostramos el mensaje de error
+                document.getElementById("noname").style.display = "inline";
+                return false; // Evita el envío del formulario
+            } else {
+                // Ocultamos el mensaje de error si el campo tiene texto
+                document.getElementById("noname").style.display = "none";
+                return true; // Permite el envío del formulario
+            }
+        }
+    </script>
+</body>
+</html>
